@@ -40,6 +40,7 @@
         },1500);
       },
       reestablecer(){
+        if (this.contador === 0) return this.mensaje = 'El valor no se puede reestablecer.';
         this.mensaje = 'Reestableciendo el valor...';
         const vm = this;
         setTimeout(() => {
