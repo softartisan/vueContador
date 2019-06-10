@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue Contador</title>
+  <script src="vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p></p>
+    <p>Valor: {{ contador }}</p>
+    <button v-on:click="incrementar">+</button>
+    <button v-on:click="disminuir">-</button>
+    <button v-on:click="reestablecer">C</button>
+    <button v-on:click="examinar">Examinar</button>
+    <p>{{ mensaje }}</p>
+  </div>
+
+  <script>
+  new Vue({
+    el: '#app',
+    data: {contador: 0, mensaje: ''},
+    methods: {
+      incrementar() {
+        this.mensaje = 'Incrementando el valor en 1...';
+        const vm = this;
+        setTimeout(() => {
+          vm.contador++;
+          vm.mensaje = 'Se ha incrementado el valor en 1.';
+        },1500);
+      },
+      disminuir() {
+        this.mensaje = 'Disminuyendo el valor en 1...';
+        const vm = this;
+        setTimeout(() => {
+          vm.contador--;
+          vm.mensaje = 'Se ha disminuido el valor en 1.';
+        },1500);
+      },
+      reestablecer(){
+        this.mensaje = 'Reestableciendo el valor...';
+        const vm = this;
+        setTimeout(() => {
+          vm.contador = 0;
+          vm.mensaje = 'Se ha reestablecido el valor.';
+        },1500);
+      },
+      examinar(){
+        this.mensaje = 'Esto no tiene utilidad sinceramente.';
+      }
+    }
+  }); 
+  </script>
+</body>
+</html>
